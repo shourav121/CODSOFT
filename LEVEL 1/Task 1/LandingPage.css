@@ -7,16 +7,19 @@ body{
     display: flex;
 }
 .first{
+    z-index: -1;
     width: 30%;
     height: 100vh;
     background-color: rgb(84, 97, 82);
 }
 .second{
+    z-index: -1;
     width: 40%;
     height: 100vh;
     background-color: rgb(94, 150, 180);
 }
 .third{
+    z-index: -1;
     width: 30%;
     height: 100vh;
     background-color: rgb(42, 168, 38);
@@ -31,5 +34,53 @@ nav{
     left: 0;
     align-items: center;
     justify-content: space-evenly ;
+}
+.logo{
+    color: white;
+    font-size: 55.6px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: rgb(8, 252, 8);
+}
+.logo::first-letter{
+    color: white;
+}
+
+.menu a{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 12px;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.plate{
+    position: absolute;
+    right: 145px;
+    top: 147px;
 
 }
+
+.text{
+    position: absolute;
+    font-size: 45px;
+    color: white;
+    top: 165px;
+    left: 125px;
+
+}
+button{
+    background-color: rgb(28, 224, 28);
+    font-size: 28px;
+    color: white ;
+    border: none;
+    padding: 10px 20px;
+}
+div h1::first-letter{
+    color: rgb(18, 238, 18);
+}
+
+
+
+
