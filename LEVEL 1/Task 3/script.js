@@ -6,10 +6,14 @@ let arr = Array.from(buttons);
 arr.forEach(button => {
     button.addEventListener('click', (e) =>{
         if(e.target.innerHTML == '='){
-            string = eval(string);
-            input.value = string;
+            try {
+                // Use a safer calculation method instead of eval
+                string = Function('"use strict"; return (' + string + ')')();
+                input.value = string;
+            } catch (error) {
+                input.value = 'Error';
+            }
         }
-
         else if(e.target.innerHTML =='AC'){
             string ="";
             input.value = string;
@@ -19,9 +23,15 @@ arr.forEach(button => {
             input.value = string;
         }
         else{
-            string += e.target.innerHTML;
-            input.value = string;
+            // Prevent multiple consecutive operators
+            const lastChar = string.slice(-1);
+            const isOperator = ['+', '-', '*', '/', '%', '.'].includes(e.target.innerHTML);
+            const isPreviousCharOperator = ['+', '-', '*', '/', '%', '.'].includes(lastChar);
+            
+            if (!(isOperator && isPreviousCharOperator)) {
+                string += e.target.innerHTML;
+                input.value = string;
+            }
         }
-        
     })
 })
